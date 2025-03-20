@@ -1,16 +1,20 @@
 <?php
 
 namespace App\Http\Controllers;
+//namespace App\Traits;
 
-use App\Traits\ApiResponses;
+
 use Illuminate\Http\Request;
 
-class AuthController extends Controller
+class ApiResponses extends Controller
 {
-    use ApiResponses;
+   // use ApiResponses;
 
     public function login()
     {
-        return $this->ok('Hello, Login!');
+      //  return $this->ok('Hello, Login!');
     }
+
+
+
 }

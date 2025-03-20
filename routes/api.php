@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\AuthController;
+use App\Http\Controllers\AuthenticationController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
@@ -12,7 +12,7 @@ Route::get('/', function () {
 });
 
 
-Route::get('/login', [AuthController::class, 'login']);
+Route::get('/login', [AuthenticationController::class, 'login']);
 
 
 Route::get('/test_mongodb', function (Request $request) {
