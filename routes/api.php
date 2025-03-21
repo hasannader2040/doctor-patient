@@ -11,9 +11,7 @@ Route::get('/', function () {
     ], 200);
 });
 
-
 Route::get('/login', [AuthenticationController::class, 'login']);
-
 
 Route::get('/test_mongodb', function (Request $request) {
     $connection = DB::connection('mongodb');
@@ -25,10 +23,12 @@ Route::get('/test_mongodb', function (Request $request) {
         $msg = 'MongoDB is not accessible. Error: ' . $e->getMessage();
     }
 
-    return $msg;
+    return $msg; // Close the function here
+}); // Close the route definition here
+
+Route::middleware('auth:sanctum')->group(function () {
+    Route::get('/user', [AuthenticationController::class, 'user']);
 });
-
-
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();

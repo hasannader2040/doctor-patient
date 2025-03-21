@@ -24,4 +24,20 @@ class EnsureEmailIsVerified
 
         return $next($request);
     }
+
+
+
+
 }
+
+$app->middleware([
+    // Add global middleware here
+]);
+
+$app->middlewareGroups([
+    'api' => [
+        \Illuminate\Routing\Middleware\ThrottleRequests::class.':api',
+        \Illuminate\Routing\Middleware\SubstituteBindings::class,
+    ],
+]);
+
