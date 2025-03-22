@@ -1,6 +1,17 @@
 <?php
 
-use Illumongodb'users', function (Blueprint $table) {
+use Illuminate\Database\Migrations\Migration; // Import Migration class
+use Illuminate\Database\Schema\Blueprint; // Import Blueprint class
+use Illuminate\Support\Facades\Schema; // Import Schema facade
+
+class CreateUsersTable extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('users', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
@@ -35,4 +46,4 @@ use Illumongodb'users', function (Blueprint $table) {
         Schema::dropIfExists('password_reset_tokens');
         Schema::dropIfExists('sessions');
     }
-};
+}
